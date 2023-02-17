@@ -4,6 +4,13 @@ This is a small app which the main goal is to run the apollo federation architec
 
 ### [IN_PROGRESS] Docker in progress, so for now we have to have some softwares installeds.
 
+## Previews
+
+|                                                    |                                                     |
+| -------------------------------------------------- | --------------------------------------------------- |
+| ![User Service](/readme_assets/user_service.png)   | ![User Service](/readme_assets/product_service.png) |
+| ![User Service](/readme_assets/review_service.png) | ![User Service](/readme_assets/graphql_gateway.png) |
+
 # Prerequisites
 
 - Node.js 16+
