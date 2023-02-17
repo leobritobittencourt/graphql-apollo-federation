@@ -2,8 +2,6 @@
 
 This is a small app which the main goal is to run the apollo federation architecture, where we have the supergraph (gateway) and then subgrahps.
 
-### [IN_PROGRESS] Docker in progress, so for now we have to have some softwares installeds.
-
 ## Previews
 
 |                                                    |                                                     |
@@ -16,6 +14,8 @@ This is a small app which the main goal is to run the apollo federation architec
 - Node.js 16+
 - npm (with pnpm)
 - Docker
+
+### [IN_PROGRESS] Docker in progress, so for now we have to have some softwares installeds.
 
 ## Installation
 
