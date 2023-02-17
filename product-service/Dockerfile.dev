@@ -1,0 +1,13 @@
+FROM node:lts-slim
+WORKDIR /home/app
+
+COPY ./package.json ./
+COPY tsconfig.json ./
+RUN npm install
+
+COPY . ./
+
+# RUN npx prisma db push
+
+EXPOSE 4001
+CMD ["npm", "run", "dev"]

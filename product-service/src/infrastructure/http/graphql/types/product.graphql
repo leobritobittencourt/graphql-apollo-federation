@@ -1,0 +1,21 @@
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable"])
+
+scalar DateTime
+
+type Query {
+  findAllProducts: [Product]
+}
+
+type Mutation {
+  findOneProductById(productId: String!): Product
+  createProduct(name: String!, price: Float!): Product
+}
+
+type Product @key(fields: "id") @shareable {
+  id: ID!
+  name: String!
+  price: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
