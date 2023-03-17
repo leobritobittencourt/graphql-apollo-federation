@@ -1,3 +1,3 @@
-CREATE DATABASE graphql_user;
-CREATE DATABASE graphql_product;
-CREATE DATABASE graphql_review;
+CREATE DATABASE IF NOT EXISTS graphql_user;
+CREATE DATABASE IF NOT EXISTS graphql_product;
+CREATE DATABASE IF NOT EXISTS graphql_review;

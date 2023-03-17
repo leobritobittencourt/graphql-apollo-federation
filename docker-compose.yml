@@ -1,5 +1,13 @@
 version: '3.3'
 services:
+  local_stack:
+    image: localstack/localstack
+    container_name: localstack
+    ports:
+      - '4566:4566'
+      - '4510-4559:4510-4559'
+    networks:
+      - app_network
   graphql_app_database:
     image: mariadb
     container_name: graphql_app_database

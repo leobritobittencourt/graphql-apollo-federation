@@ -1,0 +1,31 @@
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable"])
+
+scalar DateTime
+
+type Query {
+  findAllReviews: [Review]
+  findOneReviewByProductId: Review
+}
+
+type Mutation {
+  createReview(productId: String!, userId: String!, score: Int!, observation: String!): Review
+}
+
+type Product @shareable {
+  id: ID!
+}
+
+type User @shareable {
+  id: ID!
+}
+
+type Review @key(fields: "id") {
+  id: ID!
+  score: Int
+  observation: String
+  user: User @shareable
+  product: Product @shareable
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+}

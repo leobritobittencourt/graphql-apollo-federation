@@ -1,0 +1,28 @@
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable"])
+
+scalar DateTime
+
+type Query {
+  findAllUsers: [User]
+}
+
+type Mutation {
+  createUser(name: String!, username: String!, address: String): User
+  updateUser(id: String!, name: String, username: String, address: String, city: String): User
+  deleteUser(id: String!): User
+}
+
+type User @key(fields: "id") @shareable {
+  id: ID!
+  name: String!
+  username: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+  addresses: [Addresses]
+}
+
+type Addresses @key(fields: "id") @shareable {
+  id: ID!
+  address: String!
+}
