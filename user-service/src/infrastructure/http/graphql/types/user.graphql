@@ -7,7 +7,8 @@ type Query {
 }
 
 type Mutation {
-  createUser(name: String!, username: String!): User
+  createUser(name: String!, username: String!, address: String): User
+  updateUser(id: String!, name: String, username: String, address: String, city: String): User
 }
 
 type User @key(fields: "id") @shareable {
@@ -17,4 +18,10 @@ type User @key(fields: "id") @shareable {
   createdAt: DateTime!
   updatedAt: DateTime
   deletedAt: DateTime
+  addresses: [Addresses]
+}
+
+type Addresses @key(fields: "id") @shareable {
+  id: ID!
+  address: String!
 }

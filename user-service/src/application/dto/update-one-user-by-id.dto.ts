@@ -1,4 +1,16 @@
-export class OutputFindAllUsersDto {
+export class InputUpdateOneUserByIdDto {
+  name: string;
+  username: string;
+  address: string;
+
+  constructor(data?: InputUpdateOneUserByIdDto) {
+    this.name = data?.name;
+    this.username = data?.username;
+    this.address = data?.address;
+  }
+}
+
+export class OutputUpdateOneUserByIdDTO {
   id: string;
   name: string;
   username: string;
@@ -6,11 +18,11 @@ export class OutputFindAllUsersDto {
   createdAt: Date;
   updatedAt?: Date | null;
 
-  constructor(data: OutputFindAllUsersDto) {
+  constructor(data: OutputUpdateOneUserByIdDTO) {
     this.id = data.id;
     this.name = data.name;
     this.username = data.username;
-    this.addresses = data.addresses ? data.addresses.map((address) => new OutputUserAddressDto(address)) : undefined;
+    this.addresses = data.addresses;
     this.createdAt = data.createdAt;
     this.updatedAt = data?.updatedAt;
   }

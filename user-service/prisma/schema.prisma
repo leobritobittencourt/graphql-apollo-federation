@@ -11,9 +11,20 @@ datasource db {
 }
 
 model users {
-  id        String    @id @unique @default(uuid())
+  id        String           @id @unique @default(uuid())
   name      String
   username  String
+  createdAt DateTime         @default(now()) @db.DateTime()
+  updatedAt DateTime?        @updatedAt
+  deletedAt DateTime?        @db.DateTime()
+  addresses user_addresses[]
+}
+
+model user_addresses {
+  id        String    @id @unique @default(uuid())
+  address   String
+  user      users     @relation(fields: [userId], references: [id])
+  userId    String
   createdAt DateTime  @default(now()) @db.DateTime()
   updatedAt DateTime? @updatedAt
   deletedAt DateTime? @db.DateTime()

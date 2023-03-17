@@ -24,6 +24,7 @@ export class GraphQL implements HttpInterface {
     return {
       Mutation: {
         createUser: (root: any, args: any, context: any) => this.userController.create(args),
+        updateUser: (root: any, args: any, context: any) => this.userController.updateOneById(args.id, args),
       },
       Query: {
         findAllUsers: () => this.userController.findAll(),
@@ -31,8 +32,6 @@ export class GraphQL implements HttpInterface {
       User: {
         __resolveReference: async (user: any) => {
           const result = await this.userController.findOneById(user.id);
-          console.log('🚀 ~ file: index.ts:33 ~ GraphQL ~ __resolveReference: ~ user', user);
-          console.log('🚀 ~ file: index.ts:34 ~ GraphQL ~ __resolveReference: ~ result', result);
           return result;
         },
       },

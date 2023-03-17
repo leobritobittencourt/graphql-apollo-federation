@@ -27,10 +27,10 @@ export class GraphQL implements HttpInterface {
       },
       Query: {
         findAllProducts: () => this.productController.findAll(),
-        findOneProductById: (args: any) => this.productController.findOneById(args.productId),
+        findOneProductById: (args: { productId: string }) => this.productController.findOneById(args.productId),
       },
       Product: {
-        __resolveReference: (product: any) => {
+        __resolveReference: (product: { id: string }) => {
           return this.productController.findOneById(product.id);
         },
       },
