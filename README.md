@@ -2,6 +2,10 @@
 
 This is a small app which the main goal is to run the apollo federation architecture, where we have the supergraph (gateway) and then subgrahps.
 
+## Confluence Page
+
+[Deployment POC](https://underarmour.atlassian.net/wiki/spaces/CECA/pages/3626532962/Deployment+POC+Fully+Self-Hosted)
+
 ## Previews
 
 |                                                    |                                                     |
