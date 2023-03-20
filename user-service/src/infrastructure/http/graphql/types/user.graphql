@@ -4,11 +4,12 @@ scalar DateTime
 
 type Query {
   findAllUsers: [User]
+  findOneUserById(id: String!): User
 }
 
 type Mutation {
   createUser(name: String!, username: String!, address: String): User
-  updateUser(id: String!, name: String, username: String, address: String, city: String): User
+  updateOneUserById(id: String!, name: String, username: String, address: String, city: String): User
 }
 
 type User @key(fields: "id") @shareable {

@@ -24,10 +24,11 @@ export class GraphQL implements HttpInterface {
     return {
       Mutation: {
         createUser: (root: any, args: any, context: any) => this.userController.create(args),
-        updateUser: (root: any, args: any, context: any) => this.userController.updateOneById(args.id, args),
+        updateOneUserById: (root: any, args: any, context: any) => this.userController.updateOneById(args.id, args),
       },
       Query: {
         findAllUsers: () => this.userController.findAll(),
+        findOneUserById: (_: any, args: { id: string }) => this.userController.findOneById(args.id),
       },
       User: {
         __resolveReference: async (user: any) => {

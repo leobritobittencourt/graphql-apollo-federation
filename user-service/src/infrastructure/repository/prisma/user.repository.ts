@@ -47,15 +47,7 @@ export class PrismaUserRepository implements UserRepositoryInterface {
         createdAt: true,
         addresses: true,
       },
-      data: {
-        name: data.name,
-        username: data.username,
-        addresses: {
-          create: {
-            address: data.address,
-          },
-        },
-      },
+      data,
       where: {
         id,
       },
