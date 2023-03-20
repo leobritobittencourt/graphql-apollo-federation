@@ -1,3 +1,3 @@
 export interface HttpInterface {
-  listen(): Promise<void>;
+  listen(): Promise<any>;
 }

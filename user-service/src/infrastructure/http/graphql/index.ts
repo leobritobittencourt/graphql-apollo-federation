@@ -1,4 +1,4 @@
-import { ApolloServer } from '@apollo/server';
+import { ApolloServer, BaseContext } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { buildSubgraphSchema } from '@apollo/subgraph';
 import { RepositoryFactoryInterface } from '../../../domain/factory/repository.factory';
@@ -13,11 +13,12 @@ export class GraphQL implements HttpInterface {
     this.userController = new UserController(this.repositoryFactory);
   }
 
-  async listen(port = 4002): Promise<void> {
+  async listen(port = 4002): Promise<{ server: ApolloServer<BaseContext>; url: string }> {
     const resolvers = this.getResolvers();
     const server = new ApolloServer({ schema: buildSubgraphSchema({ typeDefs, resolvers }) });
     const { url } = await startStandaloneServer(server, { listen: { port } });
     console.log(`🚀 GraphQL server ready at ${url}`);
+    return { server, url };
   }
 
   private getResolvers() {
